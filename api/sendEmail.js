@@ -8,7 +8,9 @@ module.exports = async (req, res) => {
   const { name, email, mobile, message } = req.body;
 
   const transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.gmail.com',  // Specify Gmail's SMTP server
+    port: 465,               // Gmail SMTP uses port 465
+    secure: true,            // Use a secure connection
     auth: {
         user: emailUser,
         pass: emailPass
@@ -27,5 +29,6 @@ module.exports = async (req, res) => {
     res.status(200).send('Email sent successfully!');
   } catch (error) {
     res.status(500).send('Failed to send email.');
+    console.error('Error sending email:', error);
   }
 };
