@@ -1,6 +1,4 @@
-Thanks for downloading this template!
+This is a static website to deploy on vercel.
 
-Template Name: Amoeba
-Template URL: https://bootstrapmade.com/free-one-page-bootstrap-template-amoeba/
-Author: BootstrapMade.com
-License: https://bootstrapmade.com/license/
+We are using html, css and javascript to make this website and nodemailer for the email functionality
+Vercel uses serverless functions so the nodemailer is being used here as serverless function
