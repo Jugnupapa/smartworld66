@@ -5,6 +5,8 @@ const emailUser = process.env.GMAIL_USER;
 const emailPass = process.env.GMAIL_PASS;
 
 module.exports = async (req, res) => {
+  console.log('Request: ', req)
+  console.log('Response: ', res)
   const { name, email, mobile, message } = req.body;
 
   // Log some information for debugging
