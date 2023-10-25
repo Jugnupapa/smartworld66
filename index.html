@@ -93,7 +93,7 @@
       <div class="container">
 
         <div class="row">
-          <div class="col-lg-7">
+          <div class="col-lg-7 order-1 order-lg-2">
             <img src="assets/img/property/banner2.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-5 pt-4 pt-lg-0 order-2 order-lg-1">
@@ -586,6 +586,11 @@
   
       const formData = new FormData(this);
       const mobile = formData.get('mobile');
+
+      // Debugging: Log the contents of the FormData object
+      for (var pair of formData.entries()) {
+        console.log(pair[0] + ', ' + pair[1]);
+      }
   
       // Regular expression to match a 10-digit number
       const mobilePattern = /^\d{10}$/;
