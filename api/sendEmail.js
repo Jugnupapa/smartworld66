@@ -7,12 +7,12 @@ const emailPass = process.env.GMAIL_PASS;
 module.exports = async (req, res) => {
   console.log('Request: ', req)
   console.log('Response: ', res)
-  const { name, email, mobile, message } = req.body;
+  const { email, mobile, message } = req.body;
 
   // Log some information for debugging
   console.log('Received a request with the following data:');
   console.log('Request: ', req)
-  console.log('Name:', name);
+  // console.log('Name:', name);
   console.log('Email:', email);
   console.log('Mobile:', mobile);
   console.log('Message:', message);
@@ -31,7 +31,7 @@ module.exports = async (req, res) => {
     from: emailUser,
     to: 'papajugnu@gmail.com',
     subject: 'New Contact Form Submission',
-    text: `Name: ${name}\nEmail: ${email}\nMobile: ${mobile}\nMessage: ${message}`,
+    text: `Email: ${email}\nMobile: ${mobile}\nMessage: ${message}`,
   };
 
   try {
