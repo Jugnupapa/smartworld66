@@ -4,10 +4,11 @@ const nodemailer = require('nodemailer');
 const emailUser = process.env.GMAIL_USER;
 const emailPass = process.env.GMAIL_PASS;
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
+
+  const { name, mobile, email, message } = JSON.parse(req.body);
   console.log('Request: ', req)
   console.log('Response: ', res)
-  const { email, mobile, message } = req.body;
 
   // Log some information for debugging
   console.log('Received a request with the following data:');
@@ -34,11 +35,18 @@ module.exports = async (req, res) => {
     text: `Email: ${email}\nMobile: ${mobile}\nMessage: ${message}`,
   };
 
-  try {
-    await transporter.sendMail(mailOptions);
-    res.status(200).send('Email sent successfully!');
-  } catch (error) {
-    res.status(500).send('Failed to send email.');
-    console.error('Error sending email:', error);
-  }
+    await new Promise((resolve, reject) => {
+      // send mail
+      transporter.sendMail(mailData, (err, info) => {
+          if (err) {
+              console.error(err);
+              reject(err);
+          } else {
+              console.log(info);
+              resolve(info);
+          }
+      });
+  });
+  
+  res.status(200).json({ status: "OK" });
 };
