@@ -351,7 +351,6 @@ section {
   position: absolute;
   top: 55px;
   right: 15px;
-  bottom: 15px;
   left: 15px;
   padding: 10px 0;
   background-color: #fff;
@@ -389,6 +388,12 @@ section {
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
 }
 
+/* CSS for active mobile navigation */
+.navbar-mobile-active {
+  display: block;
+}
+
+
 .navbar-mobile .dropdown ul li {
   min-width: 200px;
 }
@@ -411,12 +416,17 @@ section {
   display: block;
 }
 
+.mobilenumber-section {
+  color: #fff; /* Text color for the mobile number */
+  text-align: right;
+}
+
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 90vh;
+  height: 90%;
   background: url("../img/property/feature.jpg") bottom left;
   position: relative;
   margin-bottom: -80px;

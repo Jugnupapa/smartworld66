@@ -211,3 +211,15 @@
   });
 
 })()
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+  const navbar = document.querySelector('#navbar ul');
+  const mobileNumberSection = document.querySelector('.mobilenumber-section');
+
+  mobileNavToggle.addEventListener('click', function() {
+    navbar.classList.toggle('navbar-mobile-active');
+    mobileNumberSection.classList.toggle('active');
+  });
+});
