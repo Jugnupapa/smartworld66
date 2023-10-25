@@ -583,7 +583,7 @@
   <script>
     document.getElementById('emailForm').addEventListener('submit', function (e) {
       e.preventDefault(); // Prevent the form from submitting in the traditional way
-  
+      console.log("this is my form")
       const formData = new FormData(this);
       const mobile = formData.get('mobile');
 

@@ -7,6 +7,14 @@ const emailPass = process.env.GMAIL_PASS;
 module.exports = async (req, res) => {
   const { name, email, mobile, message } = req.body;
 
+  // Log some information for debugging
+  console.log('Received a request with the following data:');
+  console.log('Request: ', req)
+  console.log('Name:', name);
+  console.log('Email:', email);
+  console.log('Mobile:', mobile);
+  console.log('Message:', message);
+
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',  // Specify Gmail's SMTP server
     port: 465,               // Gmail SMTP uses port 465
