@@ -416,8 +416,8 @@ section {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 90vh;
-  background: url("../img/property/main.jpg") bottom left;
+  height: 72vh;
+  background: url("../img/property/main.jpg") top center;
   position: relative;
   margin-bottom: -80px;
   display: flex; /* Use flexbox to create the desired layout */
