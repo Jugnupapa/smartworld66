@@ -27,8 +27,8 @@
   
   $contact->smtp = array(
     'host' => 'smtp.gmail.com',
-    'username' => 'altaf.devwork@gmail.com', // Your Gmail email address
-    'password' => 'huizyzxbaqanwngr', // Your Gmail password or App Password (if 2FA is enabled)
+    'username' => '', // Your Gmail email address
+    'password' => '', // Your Gmail password or App Password (if 2FA is enabled)
     'port' => '587', // The recommended SMTP port for Gmail
     'encryption' => 'tls', // Use TLS encryption
 );
