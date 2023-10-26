@@ -31,7 +31,7 @@ export default async (req, res) => {
 
       const mailOptions = {
         from: emailUser,
-        to: 'papajugnu@gmail.com',
+        to: 'togmtrealtors@gmail.com',
         subject: 'New Contact Form Submission',
         text: `Name: ${name}\nEmail: ${email}\nMobile: ${mobile}\nMessage: ${message}`,
       };
