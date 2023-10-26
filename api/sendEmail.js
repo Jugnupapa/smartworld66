@@ -37,7 +37,7 @@ export default async (req, res) => {
     to: 'papajugnu@gmail.com',
     subject: 'New Contact Form Submission',
     // text: `Name: ${name}\nEmail: ${email}\nMobile: ${mobile}\nMessage: ${message}`,
-    text: `Name: \nEmail: \nMobile: \nMessage: `,
+    text: `Name: ${req}\nEmail: \nMobile: \nMessage: `,
   };
 
     await new Promise((resolve, reject) => {
