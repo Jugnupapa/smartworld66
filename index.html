@@ -40,13 +40,6 @@
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
-    <div class="container">
-      <div class="mobilenumber-section">
-        <div class="mobilenumber">
-          <a href="tel:+919971144076" style="color: white; background-color: rgba(7, 56, 57, 0.9);">+91 99711 44076</a>
-        </div>
-      </div>
-    </div>
     <div class="container d-flex align-items-center">
 
       <div class="logo me-auto">
@@ -68,6 +61,13 @@
       </nav><!-- .navbar -->
 
     </div>
+    <div class="container">
+      <div class="mobilenumber-section">
+        <div class="mobilenumber">
+          <a href="tel:+919971144076" style="color: white; background-color: rgba(7, 56, 57, 0.9);">+91 99711 44076</a>
+        </div>
+      </div>
+    </div>
   </header><!-- End #header -->
 
 <!-- ======= Hero Section ======= -->
@@ -83,6 +83,15 @@
     <p>Sizes: 2900 - 3500 Sq.Ft </p>
     <p>Type: Luxury Apartment</p>
     <!-- <a href="#about" class="btn-get-started scrollto">Get Started</a> -->
+  </div>
+  <div class="inquiry-form">
+    <h3>Enquire Now</h3>
+    <form id="emailForm1" action="/api/sendEmail" method="post">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="tel" name="mobile" placeholder="Your Mobile" required>
+      <button type="submit">Submit</button>
+    </form>
   </div>
 </section><!-- #hero -->
 
@@ -598,6 +607,39 @@
         alert('Please enter a valid 10-digit mobile number.');
         return; // Prevent the form from submitting if the number is invalid
       }
+  
+      // Continue with the form submission if the mobile number is valid
+      fetch('/api/sendEmail', {
+        method: 'POST',
+        body: formData,
+      })
+        .then((response) => response.text())
+        .then((data) => {
+          alert(data); // Display a success or error message to the user
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    });
+    document.getElementById('emailForm1').addEventListener('submit', function (e) {
+      e.preventDefault(); // Prevent the form from submitting in the traditional way
+      console.log("this is my form")
+      const formData = new FormData(this);
+      const mobile = formData.get('mobile');
+
+      // Debugging: Log the contents of the FormData object
+      for (var pair of formData.entries()) {
+        console.log(pair[0] + ', ' + pair[1]);
+      }
+  
+      // Regular expression to match a 10-digit number
+      const mobilePattern = /^\d{10}$/;
+  
+      if (!mobile.match(mobilePattern)) {
+        alert('Please enter a valid 10-digit mobile number.');
+        return; // Prevent the form from submitting if the number is invalid
+      }
+      formData.append('message', "I am interested in Smart World Code 66 Site");
   
       // Continue with the form submission if the mobile number is valid
       fetch('/api/sendEmail', {

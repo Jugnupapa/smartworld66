@@ -426,7 +426,7 @@ section {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 90%;
+  /* height: 90%; */
   background: url("../img/property/feature.jpg") bottom left;
   position: relative;
   margin-bottom: -80px;
@@ -508,7 +508,6 @@ section {
 }
 
 /* Media queries and other styles can remain the same */
-
 @media (min-width: 1024px) {
   #hero {
     background-attachment: fixed;
@@ -516,6 +515,21 @@ section {
 }
 
 @media (max-width: 768px) {
+  #hero {
+    flex-direction: column; /* Stack the content vertically */
+    height: auto; /* Allow the height to adjust based on content */
+    margin-bottom: 0; /* Remove negative margin */
+  }
+
+  #hero:before {
+    width: 100%; /* Make the left background take the full width */
+  }
+
+  #hero .hero-container {
+    width: 100%; /* Make the content take the full width */
+  }
+
+  /* Adjust other styles as needed for smaller screens */
   #hero h1 {
     font-size: 28px;
     line-height: 36px;
@@ -524,9 +538,66 @@ section {
   #hero h2 {
     font-size: 18px;
     line-height: 24px;
-    margin-bottom: 30px;
+    margin-bottom: 10px; /* Increase the margin between elements */
+  }
+
+  /* Add styles for the inquiry form on smaller screens */
+  .inquiry-form {
+    margin-top: 10px; /* Add margin between the form and the text */
+    display: none;
   }
 }
+
+/* Style for the transparent inquiry form */
+.inquiry-form {
+  background-color: rgba(255, 255, 255, 0.8); /* Adjust the opacity (4th value) as needed */
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px;
+  position: absolute;
+  top: 20%;
+  right: 1%;
+}
+
+.inquiry-form h3 {
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+
+.inquiry-form form {
+  background-color: transparent; /* Make the form background transparent */
+  display: block;
+  /* margin-top: 10px; */
+}
+
+/* Style for form labels */
+.inquiry-form label {
+  display: block; /* Display form labels as blocks */
+  margin-bottom: 5px; /* Add margin below labels */
+}
+
+/* Style for form input fields */
+.inquiry-form input {
+  display: block; /* Display form input fields as blocks */
+  margin-bottom: 10px; /* Add margin below input fields */
+}
+
+.inquiry-form button {
+  background-color: #70b9b0;
+  display: block;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.inquiry-form button:hover {
+  background-color: #fff;
+  color: #70b9b0;
+}
+
+/* Media queries and other styles can remain the same */
 
 
 /*--------------------------------------------------------------
