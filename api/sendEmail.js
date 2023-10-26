@@ -5,17 +5,8 @@ const emailUser = process.env.GMAIL_USER;
 const emailPass = process.env.GMAIL_PASS;
 
 export default async (req, res) => {
-  console.log('Request: ', req)
-  try {
-    const { name, mobile, email, message } = JSON.parse(req.body);
-    // Rest of your code
-    res.status(200).json({ status: "OK" });
-  } catch (error) {
-    console.error("Error parsing JSON:", error);
-    res.status(400).json({ error: "Invalid JSON data" });
-  }
 
-  const { name, mobile, email, message } = JSON.parse(req.body);
+  const { name, mobile, email, message } = req.body;
   console.log('Request: ', req)
   console.log('Response: ', res)
 
