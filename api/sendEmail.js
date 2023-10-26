@@ -5,18 +5,21 @@ const emailUser = process.env.GMAIL_USER;
 const emailPass = process.env.GMAIL_PASS;
 
 export default async (req, res) => {
-  console.log('req: ', req);
-  const { name, email, mobile, message } = req.body;
-  console.log('Request: ', req);
-  console.log('Response: ', res);
+  try {
+    console.log('Received request:', req);
 
-  // Log some information for debugging
-  console.log('Received a request with the following data:');
-  console.log('Request: ', req)
-  console.log('Name:', name);
-  console.log('Email:', email);
-  console.log('Mobile:', mobile);
-  console.log('Message:', message);
+    const { name, mobile, email, message } = req.body;
+
+    // Check if 'name' is defined, and if not, provide a default value or handle it as needed.
+    const senderName = name || 'Anonymous';
+
+    // Log some information for debugging
+    console.log('Received a request with the following data:');
+    console.log('Request: ', req)
+    console.log('Name:', name);
+    console.log('Email:', email);
+    console.log('Mobile:', mobile);
+    console.log('Message:', message);
 
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',  // Specify Gmail's SMTP server
@@ -49,4 +52,8 @@ export default async (req, res) => {
   });
   
   res.status(200).json({ status: "OK" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ status: "Error" });
+  }
 };
