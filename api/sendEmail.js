@@ -53,7 +53,7 @@ export default async (req, res) => {
       });
   });
   
-  res.status(200).json({ status: "OK" });
+  res.status(200).json({ status: "OK", body: body });
   } catch (error) {
     console.error(error);
     res.status(500).json({ status: "Error" });
