@@ -603,9 +603,12 @@
       // Continue with the form submission if the mobile number is valid
       fetch('/api/sendEmail', {
         method: 'POST',
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json', // Set the content type to JSON
+        },
+        body: JSON.stringify(data),
       })
-        .then((response) => response.text())
+        .then((response) => response.json())
         .then((data) => {
           alert(data); // Display a success or error message to the user
         })
