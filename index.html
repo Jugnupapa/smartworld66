@@ -606,7 +606,7 @@
         headers: {
           'Content-Type': 'application/json', // Set the content type to JSON
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(formData),
       })
         .then((response) => response.json())
         .then((data) => {
